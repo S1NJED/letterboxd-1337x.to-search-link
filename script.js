@@ -16,7 +16,8 @@
     const link = document.createElement("a");
     link.textContent = "1337x.to";
 	p.style.textAlign = "center";
-
+	p.style.marginTop = "10px";
+	
     const URL = document.URL;
     const formattedMovieName = URL.replace("https://letterboxd.com/film/", "").slice(0, -1).replaceAll('-', '+');
 	const URL_1337x = `https://1337x.to/search/${formattedMovieName}/1/`;
@@ -26,7 +27,7 @@
 
     const div = await new Promise((resolve) => {
         const interval = setInterval(() => {
-            const servicesDiv = document.querySelector("section.services");
+            const servicesDiv = document.querySelector("div#watch");
             if (servicesDiv)
             {
                 clearInterval(interval);
@@ -35,6 +36,5 @@
         }, 300);
     });
 
-    div.appendChild(p);
-
+    div.prepend(p);
 })();
